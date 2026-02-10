@@ -1,3 +1,5 @@
+This is the github repo created for the submission of my smart-home-and-wearables-project-contest-2025 by circuit digest, sponsered by digikey.
+
 Project Concept:
 I propose "Sentio," a project that reimagines the smart home assistant as an interactive "digital pet" rather than a lifeless tool. While most smart speakers are static cylinders, Sentio is an emotive, privacy-focused robot that is interactive and reacts to touch. Crucially, it serves as a central "Guardian" for the home: it integrates a custom Smart Video Doorbell for secure local streaming and supports Emergency Pagers for elderly care. This combines the engagement of a companion robot with the utility of a secure, offline home automation hub.
 
