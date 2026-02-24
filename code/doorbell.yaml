@@ -1,0 +1,51 @@
+esphome:
+  name: esp32cam_server
+
+esp32:
+  board: esp32cam
+  framework:
+    type: arduino
+
+# Top-level PSRAM required for the camera to function
+psram:
+
+# WiFi Configuration with Static IP
+wifi:
+  ssid: "AngryBird"
+  password: "123454321"
+  
+  # Setting the Static IP to .156
+  manual_ip:
+    static_ip: 192.168.1.156
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+
+# No API or OTA to keep Port 80 as the only open port
+logger:
+  level: DEBUG
+
+# Camera Hardware Configuration
+esp32_camera:
+  name: "ESP32 Camera"
+  external_clock:
+    pin: GPIO0
+    frequency: 20MHz
+  i2c_pins:
+    sda: GPIO26
+    scl: GPIO27
+  data_pins: [GPIO5, GPIO18, GPIO19, GPIO21, GPIO36, GPIO39, GPIO34, GPIO35]
+  vsync_pin: GPIO25
+  href_pin: GPIO23
+  pixel_clock_pin: GPIO22
+  power_down_pin: GPIO32
+  
+  # Image Settings
+  resolution: 320x240
+  jpeg_quality: 10      # Lower number = higher quality (10 is a good balance for speed)
+  max_framerate: 20 fps # Camera refreshes internal buffer 20 times per second
+  frame_buffer_location: PSRAM
+
+# Web Server on Port 80 only
+esp32_camera_web_server:
+  - port: 80
+    mode: snapshot
